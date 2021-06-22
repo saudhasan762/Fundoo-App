@@ -1,0 +1,228 @@
+.body {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    box-shadow: none;
+    /* background-color: aqua; */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+  
+.registerbody{
+    border: 1px solid #dadce0;
+}
+  
+.image{
+    margin: 72px 4px 0;
+    text-align: center;
+}
+  
+.para{
+    text-align: center;
+    display: block;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 300;
+}
+  
+.accountbox {
+    width: auto;
+    height: auto;
+    margin: 30px auto;
+    /* background-color: black; */
+    /* border-radius: 10px; */
+    /* border: 1px solid gray; */
+    border-radius: 8px;
+    border: 1px solid #dadce0;
+    /* display: block; */
+    /* box-shadow: 0 10px 25px rgba(92,99,105,.2); */
+}
+  
+.innerbody {
+    padding: 48px 40px 36px ;
+    display: flex;
+    flex-direction: row;
+    /* background-color: hotpink; */
+}
+.inputs > span{
+    color: #9fa1a5;
+    padding: 5px;
+}
+  
+.form {
+    width: 376px;
+    /* padding: 0 48px; */
+    font-size: 14px;
+    line-height: 1.4286;
+    font-size: 14px;
+    line-height: 1.4286;
+    font-family: roboto, 'Noto Sans Myanmar UI', arial, sans-serif;
+    /* background-color: rgba(245, 245, 75, 0.884); */
+    /* display: flex;
+    flex-direction: column;
+    min-height: 500px;
+    justify-content: space-evenly; */
+}
+
+.inputs{
+    width: auto;
+    /* background-color: lightgreen; */
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content:  space-between;
+  
+}
+
+.fn{
+    width: 180px;
+}
+
+.inline{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+  
+.imgpart{
+    width: 320px;
+    height: 550px;
+    /* background-color: lightslategray; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inline__buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+  
+.inline__buttons > Button {
+    background-color:#1a73e8;
+    color: white;
+    height: 30px;
+}
+
+.inline__buttons Button:hover{
+    background-color: blue;
+}
+
+.imgpart img{
+    width: 250px;
+}
+
+.google {
+    display: flex;
+    height: 24px;
+    font-size: 24px;
+    justify-content: flex-start;
+    font-family: roboto, 'Noto Sans Myanmar UI', arial, sans-serif;
+}
+#f {
+    color: blue;
+}
+#o1 {
+    color: red;
+}
+#o2 {
+    color: rgba(245, 245, 75, 0.884);
+}
+#d {
+    color: blue;
+}
+#o3 {
+    color: red;
+}
+.create {
+    display: flex;
+    padding: 20px 0;
+    font-size: 24px;
+    font-family: 'Google Sans', 'Noto Sans Myanmar UI', arial, sans-serif;
+      
+}
+
+.inputs a{
+    text-decoration: none;
+    color:blue;
+}
+
+@media only screen and (max-width: 900px) {
+  
+    .imgpart{
+        display: none;
+    }
+    .accountbox{
+        height: 100vh;
+    }  
+    .image{
+        display: '';
+    }
+}
+  
+@media only screen and (max-width: 600px) {
+  .accountbox{
+    border: none;
+    margin: 0%;
+    padding: 0%;
+    /* width: 20%; */
+    /* display: none; */
+    width: 0;
+  }
+  .innerbody{
+    padding: 35px;
+  }
+  .form{
+    width: auto;
+    min-width: 400px;
+    height: auto;
+  }
+  
+  .inline{
+    /* display: block; */
+    flex-direction: column;
+  }
+  .fn{
+    width: 100%;
+  }
+  .image{
+    display: none;
+  }
+}
+@media only screen and (max-width: 360px) {
+    .form{
+        min-width: 250px;
+        /* min-width: 255px;
+        max-width: 255px; */
+    }
+    .body{
+        width: auto;
+        max-width: 260px;
+    }
+    .innerbody{
+        padding: auto;
+        max-width: 260px;
+    }
+    .accountbox{
+        max-width: 260px;
+    }
+    .imgpart{
+        margin: 0%;
+        padding: 0%;
+        box-sizing: unset;
+    }
+    .create{
+        font-size: 19px;
+    }
+    .image{
+        display: none;
+    }
+      
+}
