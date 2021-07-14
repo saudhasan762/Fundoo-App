@@ -2,8 +2,6 @@ import { BrowserRouter , Route, Switch } from 'react-router-dom'
 import Login from './Pages/Login'
 import Signup from './Pages/Signup'
 import Dashboard from './Pages/Dashboard'
-import Example from './Pages/Example'
-import ExampleTwo from './Pages/ExampleTwo'
 import ProtectedRoute from './ProtectedRoute'
 
 const Routing = () => {
