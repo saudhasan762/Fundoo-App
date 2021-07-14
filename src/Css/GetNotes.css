@@ -1,0 +1,58 @@
+.noteBlock{
+    width: 265px;
+    min-height: 140px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: #d3d3d3 solid 1px;
+    border-radius: 8px;
+    margin: 1%;
+}
+.optionContainer{
+    height: 30px;
+}
+.inputBlock{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.noteOption{
+    display: none;
+    cursor: pointer;
+}
+
+.noteBlock:hover{
+    border: #d3d3d3 solid 3px;
+}
+.noteBlock:hover .noteOption{
+    display: block;
+}
+.displayText{
+    font-size: large;
+    margin: 3px 4px 4px 4px;
+}
+.AllNotes{
+    width: 100%;
+    display: flex;
+    flex-flow: wrap;
+    align-items: flex-start;
+    align-self: center;
+}
+
+.pin{
+    width: 10%;
+    display: none;
+}
+.noteBlock:hover .pin{
+    display: block;
+}
+
+.addnoteNone{
+    display: none;
+}
+@media only screen and (max-width: 615px){
+    .noteBlock {
+        width: 100%;
+    }
+}
