@@ -1,0 +1,50 @@
+.optionButtons{
+    display: flex;
+    flex-direction: row;
+    padding-left: 50px;
+}
+.colorDiv{
+    width: 5px;
+    height: 5px;
+    border: black solid 1px;
+    border-radius: 100px;
+}
+
+.getReminder{
+    padding : 50px 50px;
+}
+
+.dateCol{
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+    width: 100%;
+}
+
+.col{
+    display: flex;
+    flex-direction: row;
+    
+}
+.day{
+    width: 60%;
+}
+
+@media only screen and (max-width: 400px){
+.optionfield{
+    display: flex;
+    justify-content: space-between;
+}
+}
+
+.deleteoption-main{
+    width: 265px;
+    min-height: 140px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: #d3d3d3 solid 1px;
+    border-radius: 8px;
+    margin: 1%;
+}
