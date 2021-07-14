@@ -3,6 +3,10 @@ import '../Css/Login.css'
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core'
 import { withRouter } from "react-router";
+import UserService from '../services/userService';
+import Snackbar from '@material-ui/core/Snackbar';
+const service = new UserService()
+
 
 class Login extends Component {
     constructor(probs){
@@ -16,17 +20,10 @@ class Login extends Component {
             "passwordErrorMsg":"",
             "showpassword":true,
             "show": false,
-            "snackmsg": ""
+            "snackmsg":""
 
         } 
     }
-
-    handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-        this.setState({ show: false })
-    };
 
     handlechange =(e)=>{
         let name = e.target.name;
@@ -39,7 +36,7 @@ class Login extends Component {
  
     }
 
-    validationCheck = () => {
+    validateField = () => {
         this.setState({
             usernameError: false,
             usernameErrorMsg: '',
@@ -48,35 +45,33 @@ class Login extends Component {
         })
         var valid = true;
  
-        let patter = "^[0-9a-zA-Z]+([.\\-_+][0-9a-zA-Z]+)*@[a-z0-9A-Z]+.[a-z]{2,4}([.][a-zA-Z]{2,})*$";
-        let pattern = new RegExp(patter);
-        if (!pattern.test(this.state.username)) {
+        let userPattern = new RegExp('^[0-9a-zA-Z]+([.\\-_+][0-9a-zA-Z]+)*@[a-z0-9A-Z]+.[a-z]{2,4}([.][a-zA-Z]{2,})*$');
+        if (!userPattern.test(this.state.username)) {
             this.setState({ usernameError: true })
             this.setState({ usernameErrorMsg: "Invalid Gmail address" })
             valid = false;
         }
  
-        if (this.state.username.length == 0) {
+        if (this.state.username.length === 0) {
             this.setState({ usernameError: true })
-            this.setState({ usernameErrorMsg: "Choose Gmail address" })
+            this.setState({ usernameErrorMsg: "Enter Gmail address" })
             valid = false;
         }
  
-     //    let pat = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
-     //    let patternPwd = new RegExp(pat);
-     //    if (!patternPwd.test(this.state.password)) {
-     //        this.setState({ passwordError: true })
-     //        this.setState({ passwordErrorMsg: "Invalid Password" })
-     //        valid = false;
-     //    }
+        let pwdPattern = new RegExp('^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[a-z])(?=.*[#?!@$%^&*-]).{8,}$');
+        if (!pwdPattern.test(this.state.password)) {
+            this.setState({ passwordError: true })
+            this.setState({ passwordErrorMsg: "Invalid Password" })
+            valid = false;
+        }
  
         if (this.state.password.length < 8) {
             this.setState({ passwordError: true })
-            this.setState({ passwordErrorMsg: "password should be atleast 8 characters" })
+            this.setState({ passwordErrorMsg: "Password should be atleast 8 characters" })
             valid = false;
         }
  
-        if (this.state.password.length == 0) {
+        if (this.state.password.length === 0) {
             this.setState({ passwordError: true })
             this.setState({ passwordErrorMsg: "Enter a password" })
             valid = false;
@@ -87,13 +82,35 @@ class Login extends Component {
     }
 
     submit = () => {
-        if(this.validationCheck()){
+        if(this.validateField()){
             this.setState({show:true})
-            alert("Valid details")
+            let userData = {
+                "email":this.state.username,
+                "password":this.state.password,
+                "server":"advance"
+            }
+            console.log(userData);
+            service.login(userData).then((result) => { 
+                this.setState({show:true})
+                this.setState({snackmsg:"Login Successfull"})
+                console.log("logged in successfull");
+                console.log(result);
+                var token = result.data.id;
+                console.log(token);
+                localStorage.setItem('Token',token);
+                localStorage.setItem('FirstName',result.data.firstName);
+                localStorage.setItem('LastName',result.data.lastName);
+                localStorage.setItem('Email',result.data.email);
+                this.props.history.push('./Dashboard/Notes')
+            }).catch((error) => {
+                console.log(error);
+                this.setState({ snackmsg: "Incorrect credentials" })
+                this.setState({show: true})
+            })   
         }
         else{
-            this.setState({ snackmsg: "Please Enter Valid details" })
             this.setState({ show: true })
+            this.setState({ snackmsg: "Please Enter Valid details" })
         }
     }
 
@@ -128,7 +145,17 @@ class Login extends Component {
                             <div className="forget">Forget password?</div>
                             <div className="createaccount" onClick={()=>this.props.history.push('./Signup')}>Create Account</div>
                             <div className="inline__button">
-                            <Button variant="outlined" size="small" onClick={this.submit}>Sign in</Button>
+                            <Button variant="outlined" size="small" onClick={this.submit}>Login</Button>
+                            <Snackbar
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'left'
+                                }}
+                                open={this.state.show}
+                                autoHideDuration={1000}
+                                onClose={this.handleClose}
+                                message={this.state.snackmsg}
+                            />
                             
                             </div>
                     </div>
