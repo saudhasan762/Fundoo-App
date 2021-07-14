@@ -1,0 +1,72 @@
+.grow{
+    flex-grow: 1;
+}
+.AppBar{
+    background-color: #fff;
+    white-space: nowrap;
+}
+.Iconpng{
+    width: 40px;
+    height: 40px;
+    margin-left: -25px;
+}
+.search{
+    position: fixed;
+    border-radius: 7px;
+    color:gray;
+    background-color:rgba(128, 128, 128, 0.233);
+    width: 40%;
+    height: 45px;
+    justify-content: center;
+    /* margin-left: 9%; */
+    left: 20%;
+}
+.searchIcon{
+    padding-top: 10px;
+    padding-left: 13px;
+    height:100%;
+    position: fixed;
+    pointer-events: none;
+    display: flex;
+    color: black;
+}
+.inputInput{
+    padding: 1px 1px 1px 0;
+    position: absolute;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-left: 3em;
+    color: black;
+}
+.gb_5d {
+    display: inline-block;
+    font-family: 'Product Sans',Arial,sans-serif;
+    font-size: 22px;
+    line-height: 24px;
+    padding-left: 8px;
+    position: relative;
+    top: -1.5px;
+    vertical-align: middle;
+    color: #5F6368;
+    opacity: 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+}
+.avatar{
+    color: purple;
+}
+.profile-main{
+    right: 400px;
+    background-color: #fff;
+
+}
+
+.profile{
+    height: 20vh;
+    width: 10vw;
+
+}
