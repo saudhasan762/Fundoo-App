@@ -50,12 +50,12 @@ export default function ReminderPopper (props) {
         <div className="dateCol" onClick="#">
 
           <div className="day">Later Today</div>
-          <div className="time">8:00PM</div>
+          <div className="time" style={{paddingLeft:"80px"}}>8:00PM</div>
 
         </div>
         <div className="dateCol" onClick="">
           <div className="day">Tomorrow</div>
-          <div className="time">    8:00AM</div>
+          <div className="time" style={{paddingLeft:"80px"}}>    8:00AM</div>
         </div>
         <div className="dateCol" onClick="">
           <div className="day">Next Week</div>

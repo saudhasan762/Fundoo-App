@@ -5,7 +5,7 @@ import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        border: '1px solid',
+        border: '2px ridge',
         marginTop: '10px',
         padding: theme.spacing(1),
         backgroundColor: theme.palette.background.paper,

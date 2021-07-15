@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(3),
   },
   reminderPaper: {
-    marginLeft: theme.spacing(30),
+    marginLeft: theme.spacing(60),
     marginTop: theme.spacing(32)
   },
   button: {
@@ -295,31 +295,31 @@ export default function NoteOptions(props) {
           </div>
         ) : (
           <div className='optionfield'>
-            <IconButton className={classes.button} onClick={reminderHandleClick} >
+            <IconButton className={classes.button} onClick={reminderHandleClick}  >
               <AddAlertIcon />
             </IconButton>
-            <IconButton className={classes.button} >
+            <IconButton className={classes.button} style={{paddingLeft: "10px"}}>
               <PersonAddIcon />
             </IconButton>
             <IconButton
               onClick={colorsHandleClick}
               // onMouseOver={colorsHandleClick}
               className={classes.button}
-
+              style={{paddingLeft: "10px"}}
             >
               <ColorLensOutlinedIcon />
             </IconButton >
-            <IconButton className={classes.button} >
+            <IconButton className={classes.button} style={{paddingLeft: "10px"}}>
               <ImageOutlinedIcon />
             </IconButton>
-            <IconButton className={classes.button} >
+            <IconButton className={classes.button} style={{paddingLeft: "10px"}}>
               {archive ? (
                 <PublishRoundedIcon onClick={unArchiveNote} />
               ) : (
                 <SystemUpdateAltOutlinedIcon onClick={archiveNote} />
               )}
             </IconButton >
-            <IconButton className={classes.button} onClick={deleteHandleOpen} >
+            <IconButton className={classes.button} onClick={deleteHandleOpen} style={{paddingLeft: "10px"}}>
               <MoreVertOutlinedIcon />
             </IconButton>
           </div>
