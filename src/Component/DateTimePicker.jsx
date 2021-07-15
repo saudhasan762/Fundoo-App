@@ -26,8 +26,8 @@ export default function DateTimePicker(props) {
     const [open, setOpen] = React.useState(false);
     const [anchorEl, setanchorEl] = React.useState(null);
     const [close, setClose] = React.useState(false);
-    const [time, setTime] = React.useState("");
-    const [date, setDate] = React.useState("");
+    const [time, setTime] = React.useState(props.reminder);
+    const [date, setDate] = React.useState(props.reminder);
 
     const handleClose = () => {      
         setOpen(open)
@@ -51,7 +51,8 @@ export default function DateTimePicker(props) {
         setTime(event.target.value);
     }
 
-    return (
+    return (<>
+
         <div onMouseLeave={handleClose}>
             <form className={classes.container} noValidate anchorEl={anchorEl}>
                 <TextField
@@ -90,5 +91,7 @@ export default function DateTimePicker(props) {
               </div>
 
         </div>
+
+        </>
     )
 }

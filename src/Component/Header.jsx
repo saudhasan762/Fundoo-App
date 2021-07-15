@@ -2,7 +2,7 @@ import { Component } from 'react';
 import '../Css/Header.css'
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
-import { withStyles } from '@material-ui/core';
+import { Menu, Paper, Popper, withStyles } from '@material-ui/core';
 import clsx from 'clsx';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -16,6 +16,7 @@ import AppsOutlinedIcon from '@material-ui/icons/AppsOutlined';
 import SideNav from './sideNav';
 import KeepIcon from '../Asset/keep.png'
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Logout from '../Component/Logout'
 import Avatar from '@material-ui/core/Avatar';
 import ViewAgendaOutlinedIcon from '@material-ui/icons/ViewAgendaOutlined';
 import { withRouter } from 'react-router-dom';
@@ -43,6 +44,9 @@ const styles = theme =>  ({
     hide: {
       display: 'none',
     },
+    settingMenu: {
+      marginTop: theme.spacing(4),
+    },
   });
 
 class Header extends Component{
@@ -52,7 +56,9 @@ class Header extends Component{
           drawerOpen: false,
           heading:"Keep",
           search:"",
-          profile: false
+          profile: false,
+          open: false,
+          anchorE1: null
         }
         this.drawerOpen = this.handleDrawerOpen.bind(this)
         this.drawerClose = this.handleDrawerClose.bind(this)
@@ -160,22 +166,36 @@ class Header extends Component{
                     <AppsOutlinedIcon/>
                   </IconButton>
                   <IconButton
-                    onClick={this.profileHandleOpen}
+                    // onClick={this.profileHandleOpen}
+                    
                   >
-                    <Avatar  >S</Avatar>
+                    {/* <Avatar  >S</Avatar> */}
+                    <Logout />
                   </IconButton>
+                  <Paper>
+                    <Menu className={classes.settingMenu}>
+
+                    </Menu>
+                  </Paper>
                </div>
               </Toolbar>
-              
-              <div className="profile-main">
+              {/* <div className="profile-main">
               {this.state.profile ? 
+            //   <Popper>
               <div className="profile">
-                <h2>Saud Hasan</h2>
-                <p>saud.hasan@33gmail.com</p>
-                <input type="button" value="Log out" onClick={this.logOut}></input>
-              </div> : null}
-            </div>
+                <div>{localStorage.getItem("FirstName")}{localStorage.getItem("LastName")}</div>
+                <div>{localStorage.getItem("Email")}</div>
+                <div>
+                <input type="button" value="Log out" onClick={this.logOut} style={{width: "80px"}}></input>
+                </div>
+                
+              </div>
+              //  </Popper> 
+               : null}
+            </div> */}
+              
             </AppBar>
+            
             
             
             

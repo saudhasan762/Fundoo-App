@@ -60,13 +60,18 @@
     color: purple;
 }
 .profile-main{
-    right: 400px;
+    padding-left: 1350px;
     background-color: #fff;
+    position: absolute;
+    margin-top: 50px;
 
 }
 
 .profile{
     height: 20vh;
     width: 10vw;
+    display: flex;
+    flex-direction: column;
+    color: black;
 
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import useRef from 'react';
 import InputBase from "@material-ui/core/InputBase";
 import { makeStyles } from "@material-ui/core/styles";
 import CheckBoxOutlinedIcon from "@material-ui/icons/CheckBoxOutlined";
@@ -39,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TakeNote(props) {
   const classes = useStyles();
+  // const wrapperRef = useRef(null);
   var [showTitle, titleDisplay] = React.useState();
   var [title, setTitle] = React.useState();
   var [note, setNote] = React.useState();

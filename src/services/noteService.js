@@ -44,4 +44,10 @@ export default class noteServices {
       headers: {'Authorization': token}
     });
   }
+
+  changeColor = (data, token) => {
+    return axios.postMethod("http://fundoonotes.incubation.bridgelabz.com/api/notes/changesColorNotes",data,{
+      headers: {'Authorization': token}
+    });
+  }
 }

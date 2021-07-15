@@ -19,6 +19,7 @@ export default function GetNotes(props) {
     const classes = useStyles();
     const [clr, setClr] = React.useState("#fafafa");
     const [msg, setMsg] = React.useState("");
+    const [edit, setEdit] = React.useState(false);
 
     // const getall = (e) => {
     //     console.log(e);
@@ -52,12 +53,14 @@ export default function GetNotes(props) {
                                 </div>
                                 <div className="optionContainer">
                                     <div className="noteOption"
+                                     onMouseOver={setEdit(true)}
                                     >
                                         <NoteOptions
                                             setColor={clr}
                                             setClr={setClr}
                                             data={data}
                                             getAll={props.getAll}
+                                            setEdited={edit}
 
                                         />
                                     </div>

@@ -79,6 +79,7 @@ export default function NoteOptions(props) {
   const [anchorE2, setAnchorE2] = React.useState(null);
   const [anchorE3, setAnchorE3] = React.useState(null);
   const [anchorE4, setAnchorE4] = React.useState(null);
+  const [edit, setEdit] = React.useState(props.setEdited);
   const [archive, setArchive] = React.useState(props.archive);
   const [trash, setTrash] = React.useState(props.trash);
 
@@ -116,6 +117,21 @@ export default function NoteOptions(props) {
   };
 
   const passColor = (e, colr) => {
+    e.stopPropagation();
+    if(edit){
+      let data = {
+        color: colr,
+        noteIdList: [props.data.id],
+      };
+      let token = localStorage.getItem('Token');
+      service.changeColor(data, token).then(()=> {
+        console.log(colr);
+        props.getAll();
+      })
+      .catch((err)=> {
+        console.log("update color err"+err);
+      })
+    }
     props.setClr(colr);
   };
 
